@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createHashRouter, RouterProvider } from 'react-router';
 
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
@@ -14,7 +14,7 @@ import ReadingsPage from './pages/readings';
 import CreateReadingPage from './pages/readings/create-reading';
 import ReadingPage from './pages/readings/reading';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     id: '1',
     path: '/',
