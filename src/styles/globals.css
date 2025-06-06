@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+body {
+  background-color: rgba(252, 239, 145, 0.703);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+button {
+  max-height: 34px;
+}
+
+.froala-container {
+  ul {
+    list-style: unset !important;
+  }
+  ol {
+    list-style: decimal !important;
+  }
+}
+
+@layer base {
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+  ol {
+        list-style-type: decimal;
+  }
+}
