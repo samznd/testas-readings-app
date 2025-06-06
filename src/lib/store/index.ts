@@ -1,18 +1,6 @@
+import { ReadingState } from '@/types/reading.types';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-
-export interface ReadingItem {
-  id: number;
-  reading: string;
-  frags: string;
-}
-
-interface ReadingState {
-  readings: ReadingItem[];
-  createReading: (reading: ReadingItem) => void;
-  updateReading: (reading: ReadingItem[]) => void;
-  deleteReading: (id: number) => void;
-}
 
 const useReadingStore = create<ReadingState>()(
   devtools(

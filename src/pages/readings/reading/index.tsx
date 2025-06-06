@@ -17,15 +17,17 @@ const ReadingPage = () => {
 
   const handleDeleteReading = () => {
     if (!readingInfo) return;
-    deleteReading(readingInfo?.id)
+    deleteReading(readingInfo?.id);
     navigate(`/`);
-  }
+  };
 
   return (
     <div className='p-3 relative h-screen flex flex-col'>
       <div className='ml-1 mb-4 sticky top-0 left-0 w-full p-3 h-[30px] bg-[rgba(252, 239, 145, 0.703)]'>
         <LinkComponent to='/'>Back</LinkComponent>
-      <Button variant='danger' className='ml-3' onClick={handleDeleteReading}>Delete</Button>
+        <Button variant='danger' className='ml-3' onClick={handleDeleteReading}>
+          Delete
+        </Button>
       </div>
       <div className='w-full flex-1 p-2 flex justify-between mt-4 overflow-hidden'>
         {readingInfo ? (
@@ -35,7 +37,7 @@ const ReadingPage = () => {
               dangerouslySetInnerHTML={{ __html: readingInfo.reading }}
             />
             <div className='overflow-y-auto overflow-x-hidden h-full flex-[1 1 50%] bg-white p-2'>
-              <FragsParser html={readingInfo.frags} />
+              <FragsParser frags={readingInfo.frags} />
             </div>
           </div>
         ) : (

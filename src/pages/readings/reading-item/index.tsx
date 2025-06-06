@@ -1,4 +1,4 @@
-import { ReadingItem } from '@/lib/store';
+import { ReadingItem } from '@/types/reading.types';
 import { useNavigate } from 'react-router';
 
 interface IReadingItem {
