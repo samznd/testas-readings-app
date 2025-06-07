@@ -13,6 +13,7 @@ import './styles/globals.css';
 import ReadingsPage from './pages/readings';
 import CreateReadingPage from './pages/readings/create-reading';
 import ReadingPage from './pages/readings/reading';
+import { SnackbarWrapper } from './components/snackbar-wrapper';
 
 const router = createHashRouter([
   {
@@ -33,7 +34,8 @@ const router = createHashRouter([
 ]);
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
+    <SnackbarWrapper />
     <RouterProvider router={router} />
-  </StrictMode>
+  </>
 );

@@ -4,6 +4,7 @@ import LinkComponent from '@/shared/components/ui/link';
 import ReactFroalaComponent from '@/shared/components/froala-editor';
 import { useNavigate } from 'react-router';
 import useReadingForm from '@/hooks/useReadingForm';
+import { generateSnackbar } from '@/lib/generate-snackbar';
 
 const CreateReadingPage = () => {
   let navigate = useNavigate();
@@ -24,6 +25,9 @@ const CreateReadingPage = () => {
           variant='success'
           className='py-2 px-12 ml-5'
           onClick={() => {
+            if (!newReading.reading) {
+              return generateSnackbar({ type: 'error', message: "unvalid reading title!" })
+            }
             createReading(newReading);
             navigate('/');
           }}
@@ -63,8 +67,7 @@ const CreateReadingPage = () => {
                       </Button>
                     ) : null}
                   </div>
-                  <input
-                    type='text'
+                  <textarea
                     placeholder='title'
                     className='bg-white rounded-md border-none p-2'
                     value={frag.title}
