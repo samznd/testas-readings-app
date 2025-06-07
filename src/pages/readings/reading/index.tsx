@@ -1,5 +1,6 @@
 import FragsParser from '@/components/frag-parser';
 import useReadingStore from '@/lib/store';
+import CountUpTimer from '@/shared/components/count-up-timer';
 import Button from '@/shared/components/ui/button';
 import LinkComponent from '@/shared/components/ui/link';
 import { useMemo } from 'react';
@@ -29,7 +30,8 @@ const ReadingPage = () => {
           Delete
         </Button>
       </div>
-      <div className='w-full flex-1 p-2 flex justify-between mt-4 overflow-hidden'>
+        <CountUpTimer />
+      <div className='w-full flex-1 p-2 flex justify-between mt-1 overflow-hidden'>
         {readingInfo ? (
           <div className='w-full grid grid-cols-2 h-full' id='main-body'>
             <div
