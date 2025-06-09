@@ -68,19 +68,11 @@ const CreateReadingPage = () => {
                     ) : null}
                   </div>
                   <textarea
-                    placeholder='title'
-                    className='bg-white rounded-md border-none p-2'
-                    value={frag.title}
-                    onChange={(event) =>
-                      handleChangeFrags(fdx, 'title', event.target.value)
-                    }
-                  />
-                  <textarea
-                    placeholder='write your answers here'
+                    placeholder='write your question and answers here'
                     className='bg-white rounded-md border-none p-2 mt-2'
-                    value={frag.answers}
+                    value={frag.frag}
                     onChange={(event) =>
-                      handleChangeFrags(fdx, 'answers', event.target.value)
+                      handleChangeFrags(fdx, 'frag', event.target.value)
                     }
                   />
                 </div>

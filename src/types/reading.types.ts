@@ -5,8 +5,7 @@ export interface ReadingItem {
 }
 
 export interface FragItem {
-  title: string;
-  answers: string;
+  frag: string;
 }
 
 export interface ReadingState {

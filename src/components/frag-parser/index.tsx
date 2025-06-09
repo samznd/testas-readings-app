@@ -5,17 +5,20 @@ interface IFragParser {
   frags: FragItem[];
 }
 
-const answersContent = (answers: string) => answers.split('\n').filter(Boolean);
+const answersContent = (text: string): string[] => {
+  const matches = [...text.matchAll(/(?:^|\n)([IVXLCDM]+)\.\s+(.*?)(?=(\n[IVXLCDM]+\.)|\n*$)/gs)];
+  return matches.map(m => m[2].trim());
+}
 
 const FragsParser = ({ frags }: IFragParser) => {
   return (
       <Accordion
-        items={frags.map(({ title, answers }, fdx) => ({
+        items={frags.map(({ frag }, fdx) => ({
           id: String(fdx),
-          title,
+          title: frag,
           content: (
             <ul>
-              {answersContent(answers).map((answer: string) => {
+              {answersContent(frag).map((answer: string) => {
                 return <li>{answer}</li>;
               })}
             </ul>
