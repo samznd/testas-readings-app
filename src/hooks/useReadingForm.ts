@@ -9,8 +9,7 @@ const useReadingForm = () => {
     reading: '',
     frags: [
       {
-        title: '',
-        answers: '',
+        frag: ''
       },
     ],
   });
@@ -18,7 +17,7 @@ const useReadingForm = () => {
   const addNewFrag = () => {
     setNewReading((prevState) => ({
       ...prevState,
-      frags: [...prevState.frags, { title: '', answers: '' }],
+      frags: [...prevState.frags, { frag: '' }],
     }));
   };
 
@@ -31,11 +30,10 @@ const useReadingForm = () => {
 
   const handleChangeFrags = (
     fragIndex: number,
-    fragProp: keyof FragItem,
     value: string
   ) => {
     const newFrags = [...newReading.frags];
-    newFrags[fragIndex][fragProp] = value;
+    newFrags[fragIndex].frag = value;
 
     setNewReading((prevState) => ({ ...prevState, frags: newFrags }));
   };

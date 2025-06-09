@@ -72,7 +72,7 @@ const CreateReadingPage = () => {
                     className='bg-white rounded-md border-none p-2 mt-2'
                     value={frag.frag}
                     onChange={(event) =>
-                      handleChangeFrags(fdx, 'frag', event.target.value)
+                      handleChangeFrags(fdx, event.target.value)
                     }
                   />
                 </div>
