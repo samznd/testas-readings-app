@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useReadingStore from "@/lib/store";
-import { FragItem, ReadingItem } from "@/types/reading.types";
+import { ReadingItem } from "@/types/reading.types";
 
 const useReadingForm = () => {
   const { readings, createReading } = useReadingStore();
