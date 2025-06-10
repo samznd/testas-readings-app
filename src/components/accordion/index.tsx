@@ -63,7 +63,7 @@ const AccordionPanel: React.FC<{
           !isOpen ? 'line-clamp-1' : ''
         }`}
       >
-        {item.title}
+        <div dangerouslySetInnerHTML={{ __html: item.title }} />
       </button>
       <div style={transitionStyle}>
         <div ref={contentRef} className='px-4 py-2'>

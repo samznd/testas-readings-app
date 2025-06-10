@@ -5,26 +5,51 @@ interface IFragParser {
   frags: FragItem[];
 }
 
-const answersContent = (text: string): string[] => {
-  const matches = [...text.matchAll(/(?:^|\n)([IVXLCDM]+)\.\s+(.*?)(?=(\n[IVXLCDM]+\.)|\n*$)/gs)];
-  return matches.map(m => m[2].trim());
+const extractQuestion = (frag: string): string => {
+  const lines = frag.trim().split('\n');
+  for (const line of lines) {
+    if (line.trim().endsWith('?')) {
+      return line.trim();
+    }
+  }
+  return ''; // if no line ends with '?'
+};
+
+const extractOptions = (text: string): string[] => {
+  const lines = text.trim().split('\n');
+  const options: string[] = [];
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Ignore empty lines and question lines (ending with '?')
+    if (trimmed === '' || trimmed.endsWith('?')) continue;
+
+    options.push(trimmed);
+  }
+
+  return options;
 }
 
+
+
 const FragsParser = ({ frags }: IFragParser) => {
+  
   return (
-      <Accordion
-        items={frags.map(({ frag }, fdx) => ({
-          id: String(fdx),
-          title: frag,
-          content: (
-            <ul>
-              {answersContent(frag).map((answer: string) => {
-                return <li>{answer}</li>;
+    <Accordion
+      items={frags.map(({ frag }, fdx) => ({
+        id: String(fdx),
+        title: extractQuestion(frag),
+        content: (
+          <>
+            {extractOptions(frag)
+              .map((option: string) => {
+                return <p>{option}</p>;
               })}
-            </ul>
-          ),
-        }))}
-      />
+          </>
+        ),
+      }))}
+    />
   );
 };
 export default FragsParser;
