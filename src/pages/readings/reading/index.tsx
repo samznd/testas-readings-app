@@ -14,7 +14,7 @@ const ReadingPage = () => {
   const readingInfo = useMemo(() => {
     if (!id) return null;
     return readings.find((reading) => reading.id === Number(id));
-  }, []);
+  }, [id]);
 
   const handleDeleteReading = () => {
     if (!readingInfo) return;

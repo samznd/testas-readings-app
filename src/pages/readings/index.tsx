@@ -13,7 +13,9 @@ const ReadingsPage = () => {
           {readings.length > 0 ? (
             <div className='grid grid-cols-1 gap-4 w-full p-2'>
               {readings.map((reading) => {
-                return <ReadingItemComponent reading={reading} />;
+                return (
+                  <ReadingItemComponent reading={reading} key={reading.id} />
+                );
               })}
             </div>
           ) : (
