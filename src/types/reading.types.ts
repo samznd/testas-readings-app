@@ -1,11 +1,12 @@
 export interface ReadingItem {
   id: number;
   reading: string;
-  frags: FragItem[];
+  answerBox: string;
+  fragen: FragItem[];
 }
 
 export interface FragItem {
-  frag: string;
+  frage: string;
 }
 
 export interface ReadingState {

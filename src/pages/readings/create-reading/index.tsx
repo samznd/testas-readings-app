@@ -11,7 +11,7 @@ const CreateReadingPage = () => {
   const {
     newReading,
     setNewReading,
-    handleChangeFrags,
+    handleChangefragen,
     createReading,
     addNewFrag,
     deleteFrag,
@@ -47,19 +47,26 @@ const CreateReadingPage = () => {
                 setNewReading((prevState) => ({ ...prevState, reading: model }))
               }
             />
+            <ReactFroalaComponent
+              title=''
+              model={newReading.answerBox}
+              onModelChange={(model: string) =>
+                setNewReading((prevState) => ({ ...prevState, answerBox: model }))
+              }
+            />
           </div>
           <div className='w-full'>
-            {newReading.frags.map((frag, fdx) => {
+            {newReading.fragen.map((frage, fdx) => {
               return (
                 <div
                   key={fdx}
                   className={`flex flex-col ${
-                    newReading.frags.length > 1 ? 'mt-2' : ''
+                    newReading.fragen.length > 1 ? 'mt-2' : ''
                   }`}
                 >
                   <div className='flex justify-between mb-1'>
-                    <strong>Frag {fdx + 1}:</strong>
-                    {newReading.frags.length > 1 ? (
+                    <strong>frage {fdx + 1}:</strong>
+                    {newReading.fragen.length > 1 ? (
                       <Button
                         variant='danger'
                         className='!py-1 !px-6 text-sm'
@@ -72,9 +79,9 @@ const CreateReadingPage = () => {
                   <textarea
                     placeholder='write your question and answers here'
                     className='bg-white rounded-md border-none p-2 mt-2'
-                    value={frag.frag}
+                    value={frage.frage}
                     onChange={(event) =>
-                      handleChangeFrags(fdx, event.target.value)
+                      handleChangefragen(fdx, event.target.value)
                     }
                   />
                 </div>
@@ -84,7 +91,7 @@ const CreateReadingPage = () => {
               className='py-2 px-4 mt-3'
               onClick={addNewFrag}
             >
-              New Frag
+              New frage
             </Button>
           </div>
         </div>

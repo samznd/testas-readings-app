@@ -2,11 +2,11 @@ import { FragItem } from '@/types/reading.types';
 import { Accordion } from '../accordion';
 
 interface IFragParser {
-  frags: FragItem[];
+  fragen: FragItem[];
 }
 
-const extractQuestion = (frag: string): string => {
-  const lines = frag.trim().split('\n');
+const extractQuestion = (frage: string): string => {
+  const lines = frage.trim().split('\n');
   for (const line of lines) {
     if (line.trim().endsWith('?')) {
       return line.trim();
@@ -22,7 +22,6 @@ const extractOptions = (text: string): string[] => {
   for (const line of lines) {
     const trimmed = line.trim();
 
-    // Ignore empty lines and question lines (ending with '?')
     if (trimmed === '' || trimmed.endsWith('?')) continue;
 
     options.push(trimmed);
@@ -33,16 +32,16 @@ const extractOptions = (text: string): string[] => {
 
 
 
-const FragsParser = ({ frags }: IFragParser) => {
+const fragenParser = ({ fragen }: IFragParser) => {
   
   return (
     <Accordion
-      items={frags.map(({ frag }, fdx) => ({
+      items={fragen.map(({ frage }, fdx) => ({
         id: String(fdx),
-        title: extractQuestion(frag),
+        title: extractQuestion(frage),
         content: (
           <>
-            {extractOptions(frag)
+            {extractOptions(frage)
               .map((option: string) => {
                 return <p>{option}</p>;
               })}
@@ -52,4 +51,4 @@ const FragsParser = ({ frags }: IFragParser) => {
     />
   );
 };
-export default FragsParser;
+export default fragenParser;

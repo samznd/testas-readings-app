@@ -9,7 +9,7 @@ const ReadingItemComponent = ({ reading }: IReadingItem) => {
   const navigate = useNavigate()
   return (
     <div
-      className='bg-[#FED16A] p-2 rounded-md w-full cursor-pointer '
+      className='bg-[#FED16A] p-2 rounded-md w-full cursor-pointer'
       key={reading.id}
     >
       <div

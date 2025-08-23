@@ -7,9 +7,10 @@ const useReadingForm = () => {
   const [newReading, setNewReading] = useState<ReadingItem>({
     id: readings.length + 1,
     reading: '',
-    frags: [
+    answerBox: '',
+    fragen: [
       {
-        frag: ''
+        frage: ''
       },
     ],
   });
@@ -17,28 +18,28 @@ const useReadingForm = () => {
   const addNewFrag = () => {
     setNewReading((prevState) => ({
       ...prevState,
-      frags: [...prevState.frags, { frag: '' }],
+      fragen: [...prevState.fragen, { frage: '' }],
     }));
   };
 
   const deleteFrag = (index: number) => {
     setNewReading((prevState) => ({
       ...prevState,
-      frags: prevState.frags.filter((_, fdx) => fdx !== index),
+      fragen: prevState.fragen.filter((_, fdx) => fdx !== index),
     }));
   };
 
-  const handleChangeFrags = (
+  const handleChangefragen = (
     fragIndex: number,
     value: string
   ) => {
-    const newFrags = [...newReading.frags];
-    newFrags[fragIndex].frag = value;
+    const newfragen = [...newReading.fragen];
+    newfragen[fragIndex].frage = value;
 
-    setNewReading((prevState) => ({ ...prevState, frags: newFrags }));
+    setNewReading((prevState) => ({ ...prevState, fragen: newfragen }));
   };
 
-  return {readings, createReading, newReading, setNewReading, handleChangeFrags, addNewFrag, deleteFrag };
+  return {readings, createReading, newReading, setNewReading, handleChangefragen, addNewFrag, deleteFrag };
 };
 
 export default useReadingForm;
