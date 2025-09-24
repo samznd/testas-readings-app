@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "froala-editor": "^4.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-froala-wysiwyg": "^4.5.2",
