@@ -7,7 +7,7 @@ import useEditReadingForm from '@/hooks/useEditReadingForm';
 import { generateSnackbar } from '@/lib/generate-snackbar';
 
 const EditReadingPage = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const {
     reading,
@@ -57,14 +57,14 @@ const EditReadingPage = () => {
               title='Reading'
               model={reading.reading}
               onModelChange={(model: string) =>
-                setReading((prevState) => ({ ...prevState, reading: model }))
+                setReading((prevState) => prevState ? { ...prevState, reading: model } : null)
               }
             />
             <ReactFroalaComponent
               title=''
               model={reading.answerBox}
               onModelChange={(model: string) =>
-                setReading((prevState) => ({ ...prevState, answerBox: model }))
+                setReading((prevState) => prevState ? { ...prevState, answerBox: model } : null)
               }
             />
           </div>
